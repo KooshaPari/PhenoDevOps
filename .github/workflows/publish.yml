@@ -1,0 +1,13 @@
+# Generated publish workflow - calls reusable phenotype workflow
+name: Publish Go Module
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    uses: KooshaPari/phenotype-infrakit/.github/workflows/publish-go.yml@main
+    secrets: inherit

@@ -1,5 +1,7 @@
 # PhenoDevOps
 
+**Status:** maintenance
+
 Unified CI/CD pipeline orchestration, infrastructure automation, and DevOps tooling for the Phenotype ecosystem. Streamlines the path from code commit to production with built-in quality gates, security scanning, and intelligent deployment strategies.
 
 ## Overview

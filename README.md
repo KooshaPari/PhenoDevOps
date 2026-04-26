@@ -2,6 +2,10 @@
 
 **Status:** maintenance
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Quality Gate](https://github.com/KooshaPari/PhenoDevOps/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/KooshaPari/PhenoDevOps/actions/workflows/quality-gate.yml)
+[![Go](https://img.shields.io/badge/go-1.21%2B-00ADD8.svg)](https://go.dev)
+
 Unified CI/CD pipeline orchestration, infrastructure automation, and DevOps tooling for the Phenotype ecosystem. Streamlines the path from code commit to production with built-in quality gates, security scanning, and intelligent deployment strategies.
 
 ## Overview

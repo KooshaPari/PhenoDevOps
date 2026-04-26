@@ -69,3 +69,7 @@ PhenoDevOps/
 - **[AgilePlus](../AgilePlus)** — Specification and work tracking for DevOps features
 - **[Tracera](../Tracera)** — Distributed tracing backend for pipeline observability
 - **[PhenoObservability](../PhenoObservability)** — Comprehensive observability platform (metrics, logs, APM)
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

@@ -4,6 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Quality Gate](https://github.com/KooshaPari/PhenoDevOps/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/KooshaPari/PhenoDevOps/actions/workflows/quality-gate.yml)
+[![Pages](https://github.com/KooshaPari/PhenoDevOps/actions/workflows/pages.yml/badge.svg)](https://github.com/KooshaPari/PhenoDevOps/actions/workflows/pages.yml)
 [![Go](https://img.shields.io/badge/go-1.21%2B-00ADD8.svg)](https://go.dev)
 
 Unified CI/CD pipeline orchestration, infrastructure automation, and DevOps tooling for the Phenotype ecosystem. Streamlines the path from code commit to production with built-in quality gates, security scanning, and intelligent deployment strategies.
@@ -42,6 +43,10 @@ ls -la examples/pipelines/
 # Run quality checks
 go build ./cmd/phenodevops
 go test ./...
+
+# Build the docs site
+bun install
+bun run docs:build
 ```
 
 ## Project Structure
@@ -75,6 +80,18 @@ PhenoDevOps/
 - **[AgilePlus](../AgilePlus)** — Specification and work tracking for DevOps features
 - **[Tracera](../Tracera)** — Distributed tracing backend for pipeline observability
 - **[PhenoObservability](../PhenoObservability)** — Comprehensive observability platform (metrics, logs, APM)
+
+## Docs Site
+
+The repository publishes a static VitePress docs site through GitHub Pages.
+
+```bash
+bun install
+bun run docs:build
+```
+
+The Pages workflow builds with `GITHUB_PAGES=true`, which sets the base path to
+`/PhenoDevOps/`.
 
 ## License
 

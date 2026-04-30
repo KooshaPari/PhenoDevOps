@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
 ## 📚 Documentation
 - Docs(readme): expand README.md with purpose, stack, quick-start, related projects (`e912c4f`)
 - Docs(fr): scaffold FUNCTIONAL_REQUIREMENTS.md with        0 stubs (wave-2) (`9cb27c7`)

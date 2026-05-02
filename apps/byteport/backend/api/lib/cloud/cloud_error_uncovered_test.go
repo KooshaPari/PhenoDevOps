@@ -96,8 +96,8 @@ func TestCloudError_UncoveredLines(t *testing.T) {
 		// Test CalculateBackoff with first attempt (line 125 coverage)
 		config := DefaultRetryConfig
 		duration := CalculateBackoff(1, config)
-		// DefaultRetryConfig includes jitter, so check it's close to expected value
-		assert.Greater(t, duration, 1*time.Second)
+		// Attempt 1 = initial delay (no multiplication loop), so exactly 1s
+		assert.GreaterOrEqual(t, duration, 1*time.Second)
 		assert.Less(t, duration, 3*time.Second) // Allow some jitter buffer
 	})
 	

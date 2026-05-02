@@ -1,5 +1,3 @@
-// Package cloud provides a unified abstraction layer for multi-cloud deployments
-// supporting AWS, GCP, Azure, Vercel, Render, Supabase, Fly.io, Neon, and PlanetScale
 package cloud
 
 import (
@@ -363,6 +361,74 @@ type Backup struct {
 	SizeBytes   int64      `json:"size_bytes"`
 	StartedAt   time.Time  `json:"started_at"`
 	CompletedAt *time.Time `json:"completed_at,omitempty"`
+}
+
+// ProjectConfig is the top-level configuration for a multi-resource deployment.
+type ProjectConfig struct {
+	Name         string                           `json:"name"`
+	Version      string                           `json:"version"`
+	Environment  string                           `json:"environment"`
+	Region       string                           `json:"region,omitempty"`
+	Tags         map[string]string                `json:"tags,omitempty"`
+	Providers    map[string]Credentials            `json:"providers,omitempty"`
+	Resources    []ResourceConfig                 `json:"resources,omitempty"`
+	Dependencies []ResourceDependency             `json:"dependencies,omitempty"`
+}
+
+// ResourceDependency defines a dependency relationship between resources.
+type ResourceDependency struct {
+	Resource  string   `json:"resource"`
+	DependsOn []string `json:"depends_on"`
+	WaitFor   string   `json:"wait_for,omitempty"`
+}
+
+// CloudError is the canonical cloud provider error type.
+type CloudError struct {
+	Category string // e.g., "authentication", "validation", "network"
+	Code     string // e.g., "CRED_001", "RES_404"
+	Message  string
+	Cause    error
+}
+
+func (e *CloudError) Error() string { return e.Category + ":" + e.Code + " " + e.Message }
+func (e *CloudError) Unwrap() error { return e.Cause }
+
+func (e *CloudError) Is(target error) bool {
+	t, ok := target.(*CloudError)
+	if !ok {
+		return false
+	}
+	return e.Category == t.Category && e.Code == t.Code
+}
+
+// RetryConfig controls exponential-backoff retry behavior.
+type RetryConfig struct {
+	MaxRetries   int           `json:"max_retries"`
+	InitialDelay time.Duration `json:"initial_delay"`
+	MaxDelay     time.Duration `json:"max_delay"`
+	Multiplier   float64       `json:"multiplier"`
+	Jitter       float64       `json:"jitter"`
+}
+
+// DefaultRetryConfig is the standard retry configuration.
+var DefaultRetryConfig = RetryConfig{
+	MaxRetries:   3,
+	InitialDelay:  1 * time.Second,
+	MaxDelay:      30 * time.Second,
+	Multiplier:    2.0,
+	Jitter:       0.1,
+}
+
+// CalculateBackoff computes the delay for a given retry attempt.
+func CalculateBackoff(attempt int, config RetryConfig) time.Duration {
+	delay := float64(config.InitialDelay)
+	for i := 1; i < attempt; i++ {
+		delay *= config.Multiplier
+	}
+	if delay > float64(config.MaxDelay) {
+		delay = float64(config.MaxDelay)
+	}
+	return time.Duration(delay)
 }
 
 // parseRFC3339OrNow parses an RFC3339 timestamp string, returning time.Now() on failure.

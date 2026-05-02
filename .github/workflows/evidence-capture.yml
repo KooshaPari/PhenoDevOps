@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -32,7 +32,7 @@ jobs:
           toolchain: stable
 
       - name: Cache Cargo registry and build
-        uses: actions/cache@v4
+        uses: actions/cache@v4@0057852bfaa89a56745cba8c7296529d2fc39830
         with:
           path: |
             ~/.cargo/registry
@@ -104,7 +104,7 @@ jobs:
           BUNDLE_EOF
 
       - name: Upload evidence bundle as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: evidence-bundle-${{ github.run_number }}
           path: .agileplus/evidence/ci-run/

@@ -36,7 +36,7 @@ jobs:
             os: ubuntu-latest
             use_cross: true
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - uses: arduino/setup-protoc@v3
@@ -59,7 +59,7 @@ jobs:
             strip target/${{ matrix.target }}/release/agileplus || true
           fi
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: agileplus-${{ matrix.target }}
           path: target/${{ matrix.target }}/release/agileplus
@@ -152,7 +152,7 @@ jobs:
     name: CycloneDX SBOMs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - uses: dtolnay/rust-toolchain@stable
 
@@ -165,7 +165,7 @@ jobs:
         run: bash scripts/ci/generate-workspace-sboms.sh . sbom-out
 
       - name: Upload SBOM bundle
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: cyclonedx-sbom-workspace
           path: sbom-out/cyclonedx-sbom-*.json
@@ -177,7 +177,7 @@ jobs:
     name: Syft SPDX (workspace)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Install Syft
         env:
@@ -198,7 +198,7 @@ jobs:
             --exclude './.git/**'
 
       - name: Upload SPDX artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: syft-spdx-workspace
           path: sbom-out/syft-spdx-workspace.json
@@ -221,11 +221,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           fetch-depth: 0
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4@d7aade707a79a3bc4130f2605987cbbf2ecfac6c
         with:
           path: ./binaries
       - name: Prepare release assets

@@ -135,7 +135,7 @@ jobs:
     needs: validate-specs
     steps:
       - name: Comment PR with Results
-        uses: actions/github-script@v6
+        uses: actions/github-script@v6@00f12e3e20659f42342b1c0226afda7f7c042325
         with:
           script: |
             github.rest.issues.createComment({

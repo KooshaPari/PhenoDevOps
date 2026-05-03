@@ -211,3 +211,5 @@ tests/test_runtime_helpers.py
 EXTRACT_PHENOTYPE_GIT_CORE_REPORT.md
 PHENOTYPE_ERROR_CORE_EXTRACTION_REPORT.md
 .github/workflows/ci.yml
+agent-devops-setups/
+rust/forge/

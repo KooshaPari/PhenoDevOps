@@ -14,7 +14,7 @@ jobs:
     env:
       REPOS_DIR: ${{ inputs.repos_dir }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Setup mise
         uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151

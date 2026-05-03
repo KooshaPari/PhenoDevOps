@@ -213,3 +213,5 @@ PHENOTYPE_ERROR_CORE_EXTRACTION_REPORT.md
 .github/workflows/ci.yml
 agent-devops-setups/
 rust/forge/
+agent-devops-setups/
+rust/forge/

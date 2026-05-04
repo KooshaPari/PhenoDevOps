@@ -1,7 +1,11 @@
 # Phenotype Polyglot Platform - Storage Infrastructure
-# 
+#
 # Storage Stack: Dragonfly, QuestDB, Qdrant, Meilisearch, NATS, MinIO
-# 
+#
+# NOTE: This is a standalone storage stack for PhenoDevOps, NOT a mirror of
+# docker-compose.yml. It provides the data-plane services (cache, TSDB, vector
+# search, full-text search, messaging, object storage) used by all shelf repos.
+#
 # Usage:
 #   docker-compose -f PhenoDevOps/docker/docker-compose.yml up -d
 #

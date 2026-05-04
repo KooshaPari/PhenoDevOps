@@ -215,3 +215,6 @@ agent-devops-setups/
 rust/forge/
 agent-devops-setups/
 rust/forge/
+
+# Rust build artifacts
+/target

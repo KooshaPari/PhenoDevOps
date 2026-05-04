@@ -49,3 +49,15 @@ name = "phenodevops"
 version = "0.1.0"
 edition = "2021"
 publish = false
+
+[dependencies]
+sha2 = { workspace = true }
+blake3 = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+
+[dependencies]
+sha2 = { workspace = true }
+blake3 = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }

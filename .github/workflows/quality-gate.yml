@@ -1,9 +1,15 @@
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
 name: quality-gate
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-on: [pull_request]
+
 jobs:
   verify:
     runs-on: ubuntu-latest

@@ -1,30 +1,12 @@
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
 name: Release
 
-on:
-  workflow_dispatch:
-    inputs:
-      version:
-        required: true
-        type: string
-        description: "Release version"
-      language:
-        required: true
-        type: string
-        description: "Programming language"
-      registry:
-        required: true
-        type: string
-        description: "Package registry"
-      channel:
-        required: false
-        type: string
-        default: stable
-        description: "Release channel (alpha, beta, canary, stable)"
-      dry_run:
-        required: false
-        type: boolean
-        default: false
-        description: "Run without publishing"
+
 
 permissions:
   contents: write

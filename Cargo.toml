@@ -67,7 +67,6 @@ members = [
   "crates/phenotype-validation",
   "forgecode-fork",
   "phenotype-router-monitor",
-  "crates/agileplus-plugin-core",
   "rust"
 ]
 [workspace.dependencies]

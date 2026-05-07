@@ -12,7 +12,7 @@ path = "src/lib.rs"
 
 [dependencies]
 serde.workspace = true
-agileplus-error-core.workspace = true
+agileplus-error-core = { path = "../agileplus-error-core" }
 
 [dev-dependencies]
 serde_json.workspace = true

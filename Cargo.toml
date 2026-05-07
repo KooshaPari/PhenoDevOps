@@ -67,6 +67,7 @@ members = [
   "crates/phenotype-validation",
   "forgecode-fork",
   "phenotype-router-monitor",
+  "crates/agileplus-plugin-core",
   "rust"
 ]
 [workspace.dependencies]
@@ -103,7 +104,6 @@ tracing-opentelemetry = "0.31"
 tonic = "0.12"
 tonic-build = "0.12"
 futures-util = "0.3"
-agileplus-error-core = { path = "crates/agileplus-error-core" }
 reqwest = "0.13"
 
 [profile.dev]

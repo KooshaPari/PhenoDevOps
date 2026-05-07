@@ -1,11 +1,16 @@
-name: Evidence Capture
-
 on:
   push:
-    branches:
-      - "feat/**"
-      - "fix/**"
-      - "chore/**"
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+name: Evidence Capture
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+
 
 permissions:
   contents: read

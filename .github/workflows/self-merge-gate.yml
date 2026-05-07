@@ -1,5 +1,15 @@
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
 name: self-merge-gate
-on: [pull_request_review]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
 jobs:
   check:
     runs-on: ubuntu-latest

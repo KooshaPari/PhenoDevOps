@@ -1,9 +1,16 @@
-name: SonarCloud
-
 on:
   push:
-    branches:
-      - main
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+name: SonarCloud
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+
 
 jobs:
   sonar:

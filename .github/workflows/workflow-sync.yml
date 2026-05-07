@@ -1,12 +1,16 @@
-name: Workflow Sync to Repos
-
 on:
   push:
-    paths:
-      - '.github/workflows/*.yml'
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+name: Workflow Sync to Repos
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+
 
 jobs:
   sync-workflows:

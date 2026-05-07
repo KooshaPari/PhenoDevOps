@@ -1,13 +1,16 @@
-name: IaC Scanning
-
 on:
   push:
-    paths:
-      - '**.tf'
-      - '**.yaml'
-      - '**.json'
-  schedule:
-    - cron: '0 0 * * *'
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+name: IaC Scanning
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+
 
 jobs:
   tfsec:

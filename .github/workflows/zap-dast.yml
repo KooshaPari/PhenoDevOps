@@ -1,10 +1,16 @@
-name: ZAP DAST
-
 on:
   push:
-    paths:
-      - 'docs/**'
-      - 'src/**'
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+name: ZAP DAST
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+
+
 
 jobs:
   zap:

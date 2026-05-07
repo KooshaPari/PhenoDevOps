@@ -1,6 +1,6 @@
 import phenotypeTheme from '@phenotype/docs/theme'
 import Layout from './Layout.vue'
-import './custom.css'
+import './style.css'
 
 export default {
   extends: phenotypeTheme,

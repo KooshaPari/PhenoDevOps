@@ -34,14 +34,9 @@ members = [
   "crates/agileplus-sync",
   "crates/agileplus-telemetry",
   "crates/agileplus-triage",
-  "crates/bifrost-routing",
-  "crates/bifrost-routing-backup",
-  "crates/forgecode-core",
   "crates/phenotype-async-traits",
   "crates/phenotype-cache-adapter",
   "crates/phenotype-casbin-wrapper",
-  "crates/phenotype-config-core",
-  "crates/phenotype-config-loader",
   "crates/phenotype-contract",
   "crates/phenotype-contracts",
   "crates/phenotype-cost-core",
@@ -70,10 +65,9 @@ members = [
   "crates/phenotype-test-infra",
   "crates/phenotype-time",
   "crates/phenotype-validation",
-  "agileplus-agents",
   "forgecode-fork",
   "phenotype-router-monitor",
-  "rust",
+  "rust"
 ]
 [workspace.dependencies]
 serde = { version = "1", features = ["derive"] }
@@ -101,6 +95,17 @@ blake3 = "1"
 hex = "0.4"
 zstd = "0.13"
 unicode-normalization = "0.1"
+axum = "0.8"
+opentelemetry = { version = "0.25", features = ["trace"] }
+opentelemetry_sdk = { version = "0.25", features = ["trace"] }
+opentelemetry-otlp = { version = "0.25", features = ["trace"] }
+tracing-opentelemetry = "0.26"
+tonic = "0.12"
+tonic-build = "0.12"
+futures-util = "0.3"
+agileplus-error-core = { path = "crates/agileplus-error-core" }
+reqwest = "0.13"
+
 [profile.dev]
 opt-level = 0
 debug = true

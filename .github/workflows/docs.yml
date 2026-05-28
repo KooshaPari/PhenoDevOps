@@ -17,6 +17,8 @@ concurrency:
   group: docs-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
 jobs:
   vitepress:
     runs-on: ubuntu-24.04

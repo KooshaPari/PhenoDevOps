@@ -12,6 +12,8 @@ concurrency:
 
 
 
+permissions:
+  contents: read
 jobs:
   tfsec:
     runs-on: ubuntu-24.04

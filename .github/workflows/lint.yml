@@ -6,6 +6,8 @@ on:
 
 name: Lint
 
+permissions:
+  contents: read
 jobs:
   golangci:
     runs-on: ubuntu-24.04

@@ -388,11 +388,11 @@ mod tests {
     fn in_memory_secret_manager() {
         let manager = InMemorySecretManager::new();
         manager
-            .set("api_key".to_string(), "secret123".to_string())
+            .set("api_key".to_string(), "CHANGE_ME_SECRET".to_string())
             .unwrap();
 
         let secret = manager.get("api_key").unwrap();
-        assert_eq!(secret, "secret123");
+        assert_eq!(secret, "CHANGE_ME_SECRET");
 
         manager.delete("api_key").unwrap();
         assert!(manager.get("api_key").is_err());

@@ -709,7 +709,7 @@ use agileplus_domain::credentials::{CredentialStore, InMemoryCredentialStore, ke
 use axum_test::TestServer;
 use crate::mock_storage::MockStorage;
 
-pub const TEST_API_KEY: &str = "test-api-key-12345";
+pub const TEST_API_KEY: &str = "CHANGE_ME_TEST_API_KEY";
 
 /// Fixture for setting up test servers.
 pub struct TestServerFixture {

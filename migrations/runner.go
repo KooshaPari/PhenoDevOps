@@ -348,9 +348,9 @@ func (s *Seeder) Seed(ctx context.Context) error {
 func DevelopmentSeedData() SeedData {
 	return SeedData{
 		Users: []UserSeed{
-			{Email: "admin@kooshapari.com", Name: "Admin User", Password: "admin123", Role: "admin"},
-			{Email: "dev@kooshapari.com", Name: "Developer", Password: "dev123", Role: "developer"},
-			{Email: "user@kooshapari.com", Name: "Test User", Password: "user123", Role: "user"},
+			{Email: "admin@kooshapari.com", Name: "Admin User", Password: "CHANGE_ME_ADMIN_PASSWORD", Role: "admin"},
+			{Email: "dev@kooshapari.com", Name: "Developer", Password: "CHANGE_ME_DEV_PASSWORD", Role: "developer"},
+			{Email: "user@kooshapari.com", Name: "Test User", Password: "CHANGE_ME_USER_PASSWORD", Role: "user"},
 		},
 		Webhooks: []WebhookSeed{
 			{UserID: "00000000-0000-0000-0000-000000000001", URL: "https://example.com/webhook", Events: []string{"user.created", "user.updated"}},

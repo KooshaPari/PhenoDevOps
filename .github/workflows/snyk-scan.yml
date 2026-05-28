@@ -34,14 +34,14 @@ on:
 
 permissions:
   contents: read
-  security-events: write
-  checks: write
-  pull-requests: write
 
 jobs:
   snyk-test:
     name: Snyk Vulnerability Test
     runs-on: ubuntu-24.04
+    permissions:
+      security-events: write
+      pull-requests: write
     strategy:
       fail-fast: false
       matrix:

@@ -10,7 +10,7 @@ name: Generate Changelog
 
 jobs:
   changelog:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       VERSION: ${{ inputs.version }}
     steps:

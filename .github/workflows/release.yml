@@ -1,8 +1,12 @@
 on:
   push:
-    branches: [main, master, develop]
-  pull_request:
-    branches: [main, master, develop]
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., 0.1.0)'
+        required: true
 
 name: Release
 
@@ -12,7 +16,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: agileplus-release-${{ inputs.version }}
+  group: agileplus-release-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:

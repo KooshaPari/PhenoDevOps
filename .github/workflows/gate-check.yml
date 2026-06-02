@@ -8,6 +8,9 @@ name: Gate Check
 
 
 
+permissions:
+  contents: read
+
 jobs:
   gate-check:
     runs-on: ubuntu-latest

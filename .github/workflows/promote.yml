@@ -8,6 +8,9 @@ name: Promote Package
 
 
 
+permissions:
+  contents: write
+
 jobs:
   gate-check:
     uses: ./.github/workflows/gate-check.yml

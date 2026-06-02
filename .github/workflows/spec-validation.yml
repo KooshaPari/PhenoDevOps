@@ -16,6 +16,9 @@ on:
       - FUNCTIONAL_REQUIREMENTS.md
       - docs/reference/SPEC_BRANCH_WORKFLOW.md
 
+permissions:
+  contents: write
+
 jobs:
   validate-specs:
     runs-on: ubuntu-latest

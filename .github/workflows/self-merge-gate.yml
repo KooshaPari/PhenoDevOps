@@ -10,6 +10,9 @@ concurrency:
   cancel-in-progress: true
 
 
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest

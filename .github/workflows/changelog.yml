@@ -8,6 +8,9 @@ name: Generate Changelog
 
 
 
+permissions:
+  contents: write
+
 jobs:
   changelog:
     runs-on: ubuntu-latest

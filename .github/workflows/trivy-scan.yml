@@ -12,6 +12,9 @@ concurrency:
 
 
 
+permissions:
+  contents: read
+
 jobs:
   trivy-fs:
     runs-on: ubuntu-latest

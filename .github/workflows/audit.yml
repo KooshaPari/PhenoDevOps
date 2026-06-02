@@ -8,6 +8,9 @@ name: Audit Workspace
 
 
 
+permissions:
+  contents: read
+
 jobs:
   audit:
     runs-on: ubuntu-latest

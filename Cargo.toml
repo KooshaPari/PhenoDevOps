@@ -4,8 +4,8 @@ edition = "2021"
 license = "MIT"
 rust-version = "1.75"
 authors = ["Phenotype Team"]
-repository = "https://github.com/KooshaPari/phenotype-infrakit"
-description = "Phenotype Infrastructure Kit"
+repository = "https://github.com/KooshaPari/PhenoDevOps"
+description = "Phenotype DevOps monorepo"
 
 [workspace]
 resolver = "2"

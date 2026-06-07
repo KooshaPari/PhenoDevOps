@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aquasecurity/trivy-action@master
+      - uses: aquasecurity/trivy-action@bfa4b33a029b9aa80ddb784b45574c30e072c59e # pinned from @master
         with:
           scan-type: fs
           scan-ref: .
@@ -79,7 +79,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: trufflesecurity/trufflehog@main
+      - uses: trufflesecurity/trufflehog@75add79b929b263dae147d2e5bcf0daf292165cf # pinned from @main
         with:
           path: ./
           extra_args: --only-verified --fail

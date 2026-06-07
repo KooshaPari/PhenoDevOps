@@ -3,6 +3,13 @@ on:
     branches: [main, master, develop]
   pull_request:
     branches: [main, master, develop]
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 
 name: Alert Sync To Issues
 
@@ -13,13 +20,12 @@ permissions:
   contents: read
   issues: write
   security-events: read
-
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
       - name: Sync CI/Dependabot/CodeQL Alerts To Issues
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v-latest
         with:
           script: |
             const owner = context.repo.owner;

@@ -1,6 +1,14 @@
 name: Benchmarks
 
 on:
+  workflow_dispatch:
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
   push:
     branches: [main]
   pull_request:
@@ -22,15 +30,15 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-      - uses: dtolnay/rust-toolchain@5b842231ba77f5c045dba54ac5560fed2db780e2
-      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
+      - uses: dtolnay/rust-toolchain@3c5f7ea28cd621ae0bf5283f0e981fb97b8a7af9 # v-latest
+      - uses: Swatinem/rust-cache@874b06e0d3f63371f9ddbee43d4c8ebc73021583 # v-latest
         with:
           workspaces: rust
       - uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b
         with:
           version: "28.x"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ github.token }}
       - name: Check for benches directory
         id: check-benches
         run: |
@@ -49,6 +57,6 @@ jobs:
         with:
           tool: 'cargo'
           output-file-path: target/criterion/output.txt
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ github.token }}
           auto-push: true
         continue-on-error: true

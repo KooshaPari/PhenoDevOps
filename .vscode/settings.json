@@ -1,0 +1,44 @@
+{
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "editor.tabSize": 4,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true,
+    "editor.rulers": [100],
+    "editor.tabSize": 4
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.indexing": true,
+  "python.linting.enabled": true,
+  "python.formatting.provider": "ruff",
+  "python.testing.pytestEnabled": true,
+  // Files
+  "files.exclude": {
+    "**/.git": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.venv": true,
+    "**/.pytest_cache": true,
+    "**/node_modules": true,
+    "**/target": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/__pycache__/**": true,
+    "**/.venv/**": true,
+    "**/target/**": true
+  },
+  // Search
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/.venv": true,
+    "**/.git": true,
+    "**/target": true
+  }
+}

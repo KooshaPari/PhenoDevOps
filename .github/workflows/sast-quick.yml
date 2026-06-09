@@ -56,6 +56,7 @@ jobs:
   lint-rust:
     name: Rust Lint
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
       - uses: dtolnay/rust-toolchain@3c5f7ea28cd621ae0bf5283f0e981fb97b8a7af9 # v-latest
@@ -67,6 +68,7 @@ jobs:
   license-check:
     name: License Compliance
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
       - uses: licensefinder/license_finder_action@v2

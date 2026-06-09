@@ -113,8 +113,14 @@ strip = true
 name = "phenodevops"
 version = "0.1.0"
 edition = "2021"
+license = "MIT-or-Apache-2.0"
+license-file = "LICENSE"
+description = "PhenoDevOps — Phenotype DevOps tooling: CI/CD pipelines, agent dispatch infrastructure, dispatch MCP server, and operational automation"
+homepage = "https://github.com/KooshaPari/PhenoDevOps"
+documentation = "https://docs.rs/phenodevops"
+repository = "https://github.com/KooshaPari/PhenoDevOps"
+readme = "README.md"
 publish = false
-
 [dependencies]
 sha2 = { workspace = true }
 blake3 = { workspace = true }

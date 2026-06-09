@@ -1,3 +1,14 @@
+## Work State
+
+| Field | Value |
+|---|---|
+| Last commit | 2026-06-08 17:13:46 -0700 |
+| Open issues | 30 |
+| Open PRs | 9 |
+| Focus | CI workflow hygiene, monorepo workspace integrity |
+
+Progress: ████████░░ 80%
+
 # repos — CodeProjects/Phenotype organizational shelf
 
 This is the **repos shelf**: a polyrepo containing ~30 independent projects

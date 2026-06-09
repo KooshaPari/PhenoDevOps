@@ -1,3 +1,4 @@
+set -euo pipefail
 <<<<<<< HEAD
 #!/bin/sh
 # Stop and remove OrbStack containers for Dragonfly and PostgreSQL.

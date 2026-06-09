@@ -1,3 +1,4 @@
+set -euo pipefail
 <<<<<<< HEAD
 #!/bin/sh
 # Start OrbStack containers for Dragonfly and PostgreSQL.

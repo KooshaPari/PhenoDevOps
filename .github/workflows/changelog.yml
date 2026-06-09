@@ -12,6 +12,7 @@ name: Generate Changelog
 jobs:
   changelog:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
       VERSION: ${{ inputs.version }}
     steps:

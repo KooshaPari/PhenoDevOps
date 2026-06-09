@@ -15,6 +15,7 @@ jobs:
   capture-evidence:
     name: Capture evidence bundle
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
       BRANCH: ${{ github.ref_name }}
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

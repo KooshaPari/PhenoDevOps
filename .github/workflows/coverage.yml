@@ -17,5 +17,5 @@ permissions:
 jobs:
   coverage:
     timeout-minutes: 10
-    uses: KooshaPari/phenotype-infrakit/.github/workflows/coverage.yml@c894caa3f54e88a83791a5a5aed9ceddec552387
+    uses: KooshaPari/phenotype-infrakit/.github/workflows/coverage.yml@b2237417dadc970f66a0f445359ab3b01eba6289
     secrets: inherit

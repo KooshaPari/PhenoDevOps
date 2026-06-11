@@ -8,7 +8,7 @@ on:
 jobs:
   codeql:
     name: CodeQL Analysis
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       matrix:
@@ -26,7 +26,7 @@ jobs:
 
   trivy-repo:
     name: Trivy Repository Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
@@ -47,7 +47,7 @@ jobs:
 
   full-semgrep:
     name: Full Semgrep Analysis
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
@@ -70,7 +70,7 @@ jobs:
 
   full-secrets:
     name: Full Secret Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4

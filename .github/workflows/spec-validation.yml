@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   validate-specs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -139,7 +139,7 @@ jobs:
           PYTHON_EOF
 
   comment-validation:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     if: github.event_name == 'pull_request'
     needs: validate-specs

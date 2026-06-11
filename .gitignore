@@ -16,6 +16,9 @@ crates/target/
 **/target/
 Cargo.lock
 
+# Grade reports
+.grade-reports/
+
 # Node modules (689MB)
 node_modules/
 npm-debug.log*
@@ -218,3 +221,4 @@ rust/forge/
 
 # Rust build artifacts
 /target
+PhenoDevOps-wtrees/

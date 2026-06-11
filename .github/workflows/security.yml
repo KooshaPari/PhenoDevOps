@@ -27,7 +27,7 @@ jobs:
   # ─── Cargo Audit ──────────────────────────────────────────────────────
   cargo-audit:
     name: Cargo Audit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -41,7 +41,7 @@ jobs:
   # ─── Cargo Deny ───────────────────────────────────────────────────────
   cargo-deny:
     name: Cargo Deny
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
@@ -54,7 +54,7 @@ jobs:
   # ─── Gitleaks Secret Detection ────────────────────────────────────────
   gitleaks:
     name: Gitleaks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
@@ -67,7 +67,7 @@ jobs:
   # ─── CodeQL SAST ──────────────────────────────────────────────────────
   codeql:
     name: CodeQL
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -85,7 +85,7 @@ jobs:
   # ─── Python Security (bandit) ─────────────────────────────────────────
   python-security:
     name: Python Security
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v4
@@ -101,7 +101,7 @@ jobs:
   # ─── OSV-Scanner (Rust lockfile; repo does not commit Cargo.lock) ───────
   osv-scanner:
     name: OSV Scanner (Cargo.lock)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: read

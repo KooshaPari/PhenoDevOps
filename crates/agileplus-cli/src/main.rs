@@ -8,6 +8,7 @@ use std::process;
 
 use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
+use clap_ext::prelude::{setup_tracing, ConfigArg, Verbosity};
 
 use agileplus_cli::commands::{
     branch::BranchArgs, cycle::CycleArgs, implement::ImplementArgs, module::ModuleArgs,
@@ -28,9 +29,13 @@ struct Cli {
     #[command(subcommand)]
     command: Commands,
 
-    /// Increase verbosity (-v, -vv, -vvv)
-    #[arg(short, long, action = clap::ArgAction::Count, global = true)]
-    verbose: u8,
+    /// Verbosity (-v, -vv, -vvv for more, -q to silence)
+    #[command(flatten)]
+    verbosity: Verbosity,
+
+    /// Optional config file (PHENOTYPE_CONFIG env var also honored)
+    #[command(flatten)]
+    config: ConfigArg,
 
     /// Path to SQLite database
     #[arg(long, global = true, default_value = ".agileplus/agileplus.db")]
@@ -77,21 +82,40 @@ enum Commands {
 async fn main() {
     let cli = Cli::parse();
 
-    // Configure logging based on verbosity
-    let log_level = match cli.verbose {
-        0 => tracing::Level::INFO,
-        1 => tracing::Level::DEBUG,
-        _ => tracing::Level::TRACE,
-    };
-    tracing_subscriber::fmt()
-        .with_max_level(log_level)
-        .with_target(false)
-        .compact()
-        .init();
+    // Configure logging via clap-ext's shared setup_tracing
+    setup_tracing(cli.verbosity.to_filter());
+    if let Some(cfg) = &cli.config.config {
+        tracing::debug!(config = %cfg.display(), "config override");
+    }
 
     if let Err(e) = run(cli).await {
         eprintln!("Error: {e:#}");
         process::exit(1);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use clap::Parser;
+
+    #[test]
+    fn cli_parses_with_clap_ext_flattens() {
+        // Verify the new Verbosity + ConfigArg flattens parse cleanly.
+        let cli = Cli::try_parse_from(["agileplus", "--quiet", "--config", "/tmp/x.yml", "triage"])
+            .expect("parse");
+        assert!(cli.verbosity.quiet);
+        assert_eq!(cli.config.config.as_deref(), Some(std::path::Path::new("/tmp/x.yml")));
+    }
+
+    #[test]
+    fn verbosity_to_filter_default() {
+        // No flags => INFO level
+        let v = Verbosity::default();
+        assert!(matches!(
+            v.to_filter(),
+            tracing_subscriber::filter::LevelFilter::INFO
+        ));
     }
 }
 

@@ -101,6 +101,7 @@ blake3 = "1"
 hex = "0.4"
 zstd = "0.13"
 unicode-normalization = "0.1"
+clap-ext = { git = "https://github.com/KooshaPari/clap-ext", tag = "v0.1.0" }
 [profile.dev]
 opt-level = 0
 debug = true

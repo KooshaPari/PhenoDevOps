@@ -6,11 +6,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
-
 name: Release
 
 
@@ -18,10 +13,10 @@ name: Release
 permissions:
   contents: write
 
-concurrency:
-  group: agileplus-release-${{ inputs.version }}
-  cancel-in-progress: false
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   gate-check:
     timeout-minutes: 10

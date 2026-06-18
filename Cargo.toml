@@ -34,9 +34,6 @@ members = [
   "crates/agileplus-sync",
   "crates/agileplus-telemetry",
   "crates/agileplus-triage",
-  "crates/bifrost-routing",
-  "crates/bifrost-routing-backup",
-  "crates/forgecode-core",
   "crates/phenotype-async-traits",
   "crates/phenotype-cache-adapter",
   "crates/phenotype-casbin-wrapper",
@@ -71,8 +68,6 @@ members = [
   "crates/phenotype-time",
   "crates/phenotype-validation",
   "agileplus-agents",
-  "forgecode-fork",
-  "phenotype-router-monitor",
   "rust",
 ]
 [workspace.dependencies]

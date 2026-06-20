@@ -9,6 +9,9 @@ name: Generate Changelog
 
 
 
+permissions:
+  contents: write
+
 jobs:
   changelog:
     runs-on: ubuntu-24.04

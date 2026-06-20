@@ -15,6 +15,9 @@ permissions:
   schedule:
     - cron: '0 12 * * 1'
 
+permissions:
+  contents: read
+
 jobs:
   analyze:
     runs-on: ubuntu-24.04

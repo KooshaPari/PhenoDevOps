@@ -16,6 +16,9 @@ concurrency:
 
 
 
+permissions:
+  contents: read
+
 jobs:
   trivy-fs:
     runs-on: ubuntu-24.04

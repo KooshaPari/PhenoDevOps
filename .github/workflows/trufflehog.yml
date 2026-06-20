@@ -12,6 +12,9 @@ permissions:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   trufflehog:
     runs-on: ubuntu-24.04

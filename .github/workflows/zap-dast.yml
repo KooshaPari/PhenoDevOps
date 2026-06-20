@@ -16,6 +16,9 @@ concurrency:
 
 
 
+permissions:
+  contents: read
+
 jobs:
   zap:
     runs-on: ubuntu-24.04

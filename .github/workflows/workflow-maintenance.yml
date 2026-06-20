@@ -18,6 +18,9 @@ permissions:
   schedule:
     - cron: '0 2 * * 0'
 
+permissions:
+  contents: read
+
 jobs:
   validate-workflows:
     runs-on: ubuntu-24.04

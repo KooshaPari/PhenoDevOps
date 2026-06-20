@@ -9,6 +9,9 @@ name: Publish Package
 
 
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-24.04

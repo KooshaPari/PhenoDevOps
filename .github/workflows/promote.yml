@@ -9,6 +9,9 @@ name: Promote Package
 
 
 
+permissions:
+  contents: write
+
 jobs:
   gate-check:
     timeout-minutes: 10

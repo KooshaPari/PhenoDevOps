@@ -16,6 +16,9 @@ concurrency:
 
 
 
+permissions:
+  contents: read
+
 jobs:
   cargo-deny:
     runs-on: ubuntu-24.04

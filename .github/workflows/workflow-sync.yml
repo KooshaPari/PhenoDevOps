@@ -16,6 +16,9 @@ concurrency:
 
 
 
+permissions:
+  contents: write
+
 jobs:
   sync-workflows:
     runs-on: ubuntu-24.04

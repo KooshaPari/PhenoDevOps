@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0  # Full history for comparing with main
 
       - name: Set up Python
-        uses: actions/setup-python@c8813ba1bc76ebf779b911ad8ffccbf2e449cb48 # v-latest
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v-latest
         with:
           python-version: '3.11'
 
